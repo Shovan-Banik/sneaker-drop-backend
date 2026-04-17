@@ -71,8 +71,4 @@ Expiration strategy
 - A background worker (in `src/jobs/expirationJob.js`) runs every 5 seconds, finds expired ACTIVE reservations, marks them EXPIRED, increments `available_stock`, and emits a `stock_update` socket event.
 - For higher scale you can replace the worker with a queue (e.g., Redis + Bull) and distributed workers.
 
-Notes & next steps
-
-- For production, add a proper migration system (umzug or sequelize-cli), structured logging (winston), tests, and auth.
-- Consider moving expiration to a distributed queue if you expect multiple worker instances.
 
